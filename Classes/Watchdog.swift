@@ -11,7 +11,7 @@ public class Watchdog {
     private var observer: CFRunLoopObserverRef!
     private var startTime: UInt64 = 0;
     
-    init(threshold: Double = 0.2) {
+    public init(threshold: Double = 0.2) {
         self.threshold = threshold
         var timebase: mach_timebase_info_data_t = mach_timebase_info(numer: 0, denom: 0)
         mach_timebase_info(&timebase)
