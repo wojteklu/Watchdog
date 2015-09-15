@@ -1,5 +1,5 @@
 # Watchdog
-Class for logging excessive blocking on the main thread. It observes the run loop and detect any stalling or blocking that occurs. 
+Class for logging excessive blocking on the main thread. It observes the run loop and detect any stalling or blocking that occurs.
 
 ```
 👮 Main thread was blocked for 1.25s 👮
@@ -17,7 +17,7 @@ Watchdog is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your `Podfile`:
 
 ```ruby
-pod "Watchdog", '~> 1.0'
+pod "Watchdog"
 ```
 
 ### Manually
@@ -37,6 +37,8 @@ Don't forget to retain Watchdog somewhere or it will get released when it goes o
 ## Author
 
 Wojtek Lukaszuk [@wojteklukaszuk](http://twitter.com/wojteklukaszuk)
+
+Thanks [@jspahrsummers](https://twitter.com/jspahrsummers) for coming up with the original idea.
 
 ## License
 
