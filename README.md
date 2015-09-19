@@ -24,6 +24,11 @@ pod "Watchdog"
 
 Manually add the file into your Xcode project. Slightly simpler, but updates are also manual.
 
+### Carthage
+
+1. Add `github "wojteklukaszuk/Watchdog" ~> 1.0.2` to your Cartfile or Cartfile.private
+2. Run `carthage update`
+
 ## Usage
 
 Simply, just instantiate Watchdog with number of seconds that must pass to consider the main thread blocked.
