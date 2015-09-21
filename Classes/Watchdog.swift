@@ -17,6 +17,8 @@ import Foundation
         self.threshold = threshold
         self.blockingClosure = blockingClosure
         
+        self.threshold = threshold
+        
         super.init()
         
         var timebase: mach_timebase_info_data_t = mach_timebase_info(numer: 0, denom: 0)
