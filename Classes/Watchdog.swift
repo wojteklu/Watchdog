@@ -9,12 +9,13 @@ import Foundation
     
     private var runLoop: CFRunLoopRef = CFRunLoopGetMain()
     private var observer: CFRunLoopObserverRef!
-    private var startTime: UInt64 = 0;
+    private var startTime: UInt64 = 0
+    private var handler: ((Double) -> ())? = nil
     
-    public init(threshold: Double = 0.2) {
+    public init(threshold: Double = 0.2, handler: ((Double) -> ())? = nil) {
         
         self.threshold = threshold
-        
+        self.handler = handler
         super.init()
         
         var timebase: mach_timebase_info_data_t = mach_timebase_info(numer: 0, denom: 0)
@@ -45,7 +46,11 @@ import Foundation
                     let duration: NSTimeInterval = NSTimeInterval(elapsed) * secondsPerMachine
                     
                     if duration > weakSelf.threshold {
-                        print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮");
+                        if let handler = weakSelf.handler {
+                            handler(duration)
+                        } else {
+                            print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮")
+                        }
                     }
                     
                     weakSelf.startTime = 0
