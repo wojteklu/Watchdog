@@ -34,15 +34,16 @@ Manually add the file into your Xcode project. Slightly simpler, but updates are
 Simply, just instantiate Watchdog with number of seconds that must pass to consider the main thread blocked.
 
 ```Swift
-let watchdog = Watchdog(0.2)
+let watchdog = Watchdog(threshold: 0.2)
 ```
 
-or in Objective-C:
+You can also write a closure to be called whenever the main thread is blocked
 
-```objc
-Watchdog *watchdog = [[Watchdog alloc] initWithThreshold:0.2];
+```Swift
+let watchdog = Watchdog(threshold: 0.3) { duration in
+	print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮")
+}
 ```
-
 Don't forget to retain Watchdog somewhere or it will get released when it goes out of scope.
 
 ## Author
