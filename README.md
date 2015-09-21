@@ -37,6 +37,14 @@ Simply, just instantiate Watchdog with number of seconds that must pass to consi
 let watchdog = Watchdog(0.2)
 ```
 
+Alternatively, there's a closure that's executed whenever any blocks occur.
+
+```Swift
+let watchdog = Watchdog(threshold: 0.3) { duration in
+	print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮")
+})
+```
+
 Don't forget to retain Watchdog somewhere or it will get released when it goes out of scope.
 
 ## Author

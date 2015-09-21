@@ -9,10 +9,12 @@ public class Watchdog {
     
     private var runLoop: CFRunLoopRef = CFRunLoopGetMain()
     private var observer: CFRunLoopObserverRef!
-    private var startTime: UInt64 = 0;
+    private var startTime: UInt64 = 0
+    private var blockingClosure: ((duration: Double) -> ())? = nil
     
-    public init(threshold: Double = 0.2) {
+    public init(threshold: Double = 0.2, blockingClosure: ((duration: Double) -> ())? = nil) {
         self.threshold = threshold
+        self.blockingClosure = blockingClosure
         var timebase: mach_timebase_info_data_t = mach_timebase_info(numer: 0, denom: 0)
         mach_timebase_info(&timebase)
         let secondsPerMachine: NSTimeInterval = NSTimeInterval(Double(timebase.numer) / Double(timebase.denom) / Double(1e9))
@@ -27,7 +29,7 @@ public class Watchdog {
                 }
                 
                 switch(activity) {
-
+                    
                 case CFRunLoopActivity.Entry, CFRunLoopActivity.BeforeTimers,
                 CFRunLoopActivity.AfterWaiting, CFRunLoopActivity.BeforeSources:
                     
@@ -41,7 +43,11 @@ public class Watchdog {
                     let duration: NSTimeInterval = NSTimeInterval(elapsed) * secondsPerMachine
                     
                     if duration > weakSelf.threshold {
-                        print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮");
+                        if let blockingClosure = weakSelf.blockingClosure {
+                            blockingClosure(duration:duration)
+                        } else {
+                            print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮")
+                        }
                     }
                     
                     weakSelf.startTime = 0
