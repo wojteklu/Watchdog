@@ -43,6 +43,7 @@ Alternatively, there's a closure that's executed whenever any blocks occur.
 let watchdog = Watchdog(threshold: 0.3) { duration in
 	print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮")
 })
+```
 
 or in Objective-C:
 
