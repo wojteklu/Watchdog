@@ -37,6 +37,8 @@ Simply, just instantiate Watchdog with number of seconds that must pass to consi
 let watchdog = Watchdog(0.2)
 ```
 
+or in Objective-C:
+
 ```objc
 Watchdog *watchdog = [[Watchdog alloc] initWithThreshold:0.2];
 ```
