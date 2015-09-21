@@ -43,6 +43,11 @@ Alternatively, there's a closure that's executed whenever any blocks occur.
 let watchdog = Watchdog(threshold: 0.3) { duration in
 	print("👮 Main thread was blocked for " + String(format:"%.2f", duration) + "s 👮")
 })
+
+or in Objective-C:
+
+```objc
+Watchdog *watchdog = [[Watchdog alloc] initWithThreshold:0.2];
 ```
 
 Don't forget to retain Watchdog somewhere or it will get released when it goes out of scope.
