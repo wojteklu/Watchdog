@@ -1,6 +1,6 @@
 import Foundation
 
-public class Watchdog {
+@objc public class Watchdog: NSObject {
     
     /*
     The number of seconds that must pass to consider the main thread blocked
@@ -12,7 +12,11 @@ public class Watchdog {
     private var startTime: UInt64 = 0;
     
     public init(threshold: Double = 0.2) {
+        
         self.threshold = threshold
+        
+        super.init()
+        
         var timebase: mach_timebase_info_data_t = mach_timebase_info(numer: 0, denom: 0)
         mach_timebase_info(&timebase)
         let secondsPerMachine: NSTimeInterval = NSTimeInterval(Double(timebase.numer) / Double(timebase.denom) / Double(1e9))
