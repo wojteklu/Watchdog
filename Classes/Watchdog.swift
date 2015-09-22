@@ -56,13 +56,14 @@ import Foundation
                     weakSelf.startTime = 0
                     
                 default: ()
+
                 }
         }
         
-        CFRunLoopAddObserver(CFRunLoopGetMain(), observer!, kCFRunLoopCommonModes)
+        CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes)
     }
     
     deinit {
-        CFRunLoopObserverInvalidate(observer!)
+        CFRunLoopObserverInvalidate(observer)
     }
 }
