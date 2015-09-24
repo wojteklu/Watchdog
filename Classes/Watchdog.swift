@@ -7,7 +7,6 @@ import Foundation
     */
     private var threshold: Double
     
-    private var runLoop: CFRunLoopRef = CFRunLoopGetMain()
     private var observer: CFRunLoopObserverRef!
     private var startTime: UInt64 = 0
     private var handler: ((Double) -> ())? = nil
