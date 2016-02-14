@@ -42,9 +42,9 @@ private class PingThread: NSThread {
     var pingTaskIsRunning = false
     var semaphore = dispatch_semaphore_create(0)
     var threshold: Double
-    var handler: () -> ()
+    var handler: () -> Void
     
-    init(threshold: Double, handler: () -> ()) {
+    init(threshold: Double, handler: () -> Void) {
         self.threshold = threshold
         self.handler = handler
     }
