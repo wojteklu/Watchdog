@@ -24,7 +24,7 @@ import Foundation
             if strictMode {
                 assertionFailure()
             } else {
-                print(message)
+                NSLog("%@", message)
             }
         }
         
