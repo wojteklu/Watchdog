@@ -6,9 +6,10 @@ import Foundation
     private let pingThread: PingThread
 
     private static let defaultThreshold = 0.4
-    
-    /// @param threshold number of seconds that must pass to consider the main thread blocked.
-    /// @param strictMode boolean value that stops the execution whenever the threshold is reached.
+
+    /// Convenience initializer that allows you to construct a `WatchDog` object with default behavior.
+    /// - parameter threshold: number of seconds that must pass to consider the main thread blocked.
+    /// - parameter strictMode: boolean value that stops the execution whenever the threshold is reached.
     public convenience init(threshold: Double = Watchdog.defaultThreshold, strictMode: Bool = false) {
         self.init(threshold: threshold) {
             let message = "👮 Main thread was blocked for "
@@ -22,8 +23,9 @@ import Foundation
         }
     }
 
-    /// @param threshold number of seconds that must pass to consider the main thread blocked.
-    /// @param watchdogFiredCallback a callback that will be called when the the threshold is reached
+    /// Default initializer that allows you to construct a `WatchDog` object specifying a custom callback.
+    /// - parameter threshold: number of seconds that must pass to consider the main thread blocked.
+    /// - parameter watchdogFiredCallback: a callback that will be called when the the threshold is reached
     public init(threshold: Double = Watchdog.defaultThreshold, watchdogFiredCallback: () -> Void) {
         self.threshold = threshold
         self.pingThread = PingThread(threshold: threshold, handler: watchdogFiredCallback)
