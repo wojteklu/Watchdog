@@ -10,12 +10,11 @@ import Foundation
     /// - parameter threshold: number of seconds that must pass to consider the main thread blocked.
     /// - parameter strictMode: boolean value that stops the execution whenever the threshold is reached.
     public convenience init(threshold: Double = Watchdog.defaultThreshold, strictMode: Bool = false) {
-        self.init(threshold: threshold) {
-            let message = "👮 Main thread was blocked for "
-                + String(format:"%.2f", threshold) + "s 👮"
+        let message = "👮 Main thread was blocked for " + String(format:"%.2f", threshold) + "s 👮"
 
+        self.init(threshold: threshold) {
             if strictMode {
-                assertionFailure()
+                assertionFailure(message)
             } else {
                 NSLog("%@", message)
             }
