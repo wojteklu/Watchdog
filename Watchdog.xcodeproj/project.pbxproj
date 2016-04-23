@@ -15,8 +15,6 @@
 		5C5A35B31BAC789D0057680B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Classes/Info.plist; sourceTree = SOURCE_ROOT; };
 		5C5A35B41BAC789D0057680B /* Watchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Watchdog.h; path = Classes/Watchdog.h; sourceTree = SOURCE_ROOT; };
 		5CB520271BAC7807006C7C92 /* Watchdog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Watchdog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CB520381BAC7807006C7C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CB520391BAC7807006C7C92 /* WatchdogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchdogTests.swift; sourceTree = "<group>"; };
 		5CB520431BAC7844006C7C92 /* Watchdog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Watchdog.swift; path = Classes/Watchdog.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -35,7 +33,6 @@
 			isa = PBXGroup;
 			children = (
 				5CB520291BAC7807006C7C92 /* Watchdog */,
-				5CB520361BAC7807006C7C92 /* WatchdogTests */,
 				5CB520281BAC7807006C7C92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,23 +59,6 @@
 			children = (
 				5C5A35B31BAC789D0057680B /* Info.plist */,
 				5C5A35B41BAC789D0057680B /* Watchdog.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5CB520361BAC7807006C7C92 /* WatchdogTests */ = {
-			isa = PBXGroup;
-			children = (
-				5CB520391BAC7807006C7C92 /* WatchdogTests.swift */,
-				5CB520371BAC7807006C7C92 /* Supporting Files */,
-			);
-			path = WatchdogTests;
-			sourceTree = "<group>";
-		};
-		5CB520371BAC7807006C7C92 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5CB520381BAC7807006C7C92 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

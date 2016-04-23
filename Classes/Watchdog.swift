@@ -2,7 +2,6 @@ import Foundation
 
 /// Class for logging excessive blocking on the main thread.
 @objc final public class Watchdog: NSObject {
-    private let threshold: Double
     private let pingThread: PingThread
 
     private static let defaultThreshold = 0.4
@@ -11,12 +10,11 @@ import Foundation
     /// - parameter threshold: number of seconds that must pass to consider the main thread blocked.
     /// - parameter strictMode: boolean value that stops the execution whenever the threshold is reached.
     public convenience init(threshold: Double = Watchdog.defaultThreshold, strictMode: Bool = false) {
-        self.init(threshold: threshold) {
-            let message = "👮 Main thread was blocked for "
-                + String(format:"%.2f", threshold) + "s 👮"
+        let message = "👮 Main thread was blocked for " + String(format:"%.2f", threshold) + "s 👮"
 
+        self.init(threshold: threshold) {
             if strictMode {
-                assertionFailure()
+                assertionFailure(message)
             } else {
                 NSLog("%@", message)
             }
@@ -27,7 +25,6 @@ import Foundation
     /// - parameter threshold: number of seconds that must pass to consider the main thread blocked.
     /// - parameter watchdogFiredCallback: a callback that will be called when the the threshold is reached
     public init(threshold: Double = Watchdog.defaultThreshold, watchdogFiredCallback: () -> Void) {
-        self.threshold = threshold
         self.pingThread = PingThread(threshold: threshold, handler: watchdogFiredCallback)
 
         self.pingThread.start()
@@ -40,10 +37,10 @@ import Foundation
 }
 
 private final class PingThread: NSThread {
-    var pingTaskIsRunning = false
-    var semaphore = dispatch_semaphore_create(0)
-    let threshold: Double
-    let handler: () -> Void
+    private var pingTaskIsRunning = false
+    private var semaphore = dispatch_semaphore_create(0)
+    private let threshold: Double
+    private let handler: () -> Void
     
     init(threshold: Double, handler: () -> Void) {
         self.threshold = threshold
@@ -51,7 +48,7 @@ private final class PingThread: NSThread {
     }
     
     override func main() {
-        while !self.cancelled {
+        while !cancelled {
             pingTaskIsRunning = true
             dispatch_async(dispatch_get_main_queue()) {
                 self.pingTaskIsRunning = false
@@ -60,7 +57,7 @@ private final class PingThread: NSThread {
             
             NSThread.sleepForTimeInterval(threshold)
             if pingTaskIsRunning {
-                self.handler()
+                handler()
             }
             
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
