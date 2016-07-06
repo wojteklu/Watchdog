@@ -7,6 +7,17 @@ Class for logging excessive blocking on the main thread. It watches the main thr
 ```
 👮 Main thread was blocked for 1.25s 👮
 ```
+
+## Usage
+
+Simply, just instantiate Watchdog with number of seconds that must pass to consider the main thread blocked. Additionally you can enable `strictMode` that stops the execution whenever the threshold is reached. This way, you can inspect which part of your code is blocking the main thread.
+
+```Swift
+let watchdog = Watchdog(threshold: 0.4, strictMode: true)
+```
+
+Don't forget to retain Watchdog somewhere or it will get released when it goes out of scope.
+
 ## Requirements
 
 * iOS 8.0+, tvOS 9.0+ or macOS 10.9+
@@ -52,16 +63,6 @@ Then run `pod install` with CocoaPods 0.36 or newer.
 ### Manually
 
 Manually add the file into your Xcode project. Slightly simpler, but updates are also manual.
-
-## Usage
-
-Simply, just instantiate Watchdog with number of seconds that must pass to consider the main thread blocked. Additionally you can enable `strictMode` that stops the execution whenever the threshold is reached. This way, you can inspect which part of your code is blocking the main thread.
-
-```Swift
-let watchdog = Watchdog(threshold: 0.4, strictMode: true)
-```
-
-Don't forget to retain Watchdog somewhere or it will get released when it goes out of scope.
 
 ## Author
 
