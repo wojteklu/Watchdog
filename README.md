@@ -1,4 +1,7 @@
 # Watchdog
+
+[![Build Status](https://img.shields.io/travis/wojteklu/Watchdog/master.svg?style=flat-square)](https://travis-ci.org/wojteklu/Watchdog) [![Platform support](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS-lightgrey.svg?style=flat-square)](https://github.com/wojteklu/Watchdog/blob/master/LICENSE)  [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Watchdog.svg?style=flat-square)](https://cocoapods.org/pods/Watchdog)  [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)  [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/wojteklu/Watchdog/blob/master/LICENSE)
+
 Class for logging excessive blocking on the main thread. It watches the main thread and checks if it doesn’t get blocked for more than defined threshold. You can also inspect which part of your code is blocking the main thread.
 
 ```
@@ -6,7 +9,7 @@ Class for logging excessive blocking on the main thread. It watches the main thr
 ```
 ## Requirements
 
-* iOS 8.0+, tvOS 9.0+ or OS X 10.9+
+* iOS 8.0+, tvOS 9.0+ or macOS 10.9+
 * Xcode 7.0 or above
 
 ## Installation
