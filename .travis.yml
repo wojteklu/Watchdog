@@ -3,3 +3,4 @@ language: objective-c
 xcode_project: Watchdog.xcodeproj
 xcode_scheme: Watchdog
 xcode_sdk: iphonesimulator
+script: ./build.sh
