@@ -1,0 +1,5 @@
+osx_image: xcode7.3
+language: objective-c
+xcode_project: Watchdog.xcodeproj
+xcode_scheme: Watchdog
+xcode_sdk: iphonesimulator
