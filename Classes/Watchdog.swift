@@ -24,7 +24,7 @@ import Foundation
     /// Default initializer that allows you to construct a `WatchDog` object specifying a custom callback.
     /// - parameter threshold: number of seconds that must pass to consider the main thread blocked.
     /// - parameter watchdogFiredCallback: a callback that will be called when the the threshold is reached
-    public init(threshold: Double = Watchdog.defaultThreshold, watchdogFiredCallback: () -> Void) {
+    public init(threshold: Double = Watchdog.defaultThreshold, watchdogFiredCallback: @escaping () -> Void) {
         self.pingThread = PingThread(threshold: threshold, handler: watchdogFiredCallback)
 
         self.pingThread.start()
@@ -36,31 +36,31 @@ import Foundation
     }
 }
 
-private final class PingThread: NSThread {
+private final class PingThread: Thread {
     private var pingTaskIsRunning = false
-    private var semaphore = dispatch_semaphore_create(0)
+    private var semaphore = DispatchSemaphore(value: 0)
     private let threshold: Double
     private let handler: () -> Void
     
-    init(threshold: Double, handler: () -> Void) {
+    init(threshold: Double, handler: @escaping () -> Void) {
         self.threshold = threshold
         self.handler = handler
     }
     
     override func main() {
-        while !cancelled {
+        while !isCancelled {
             pingTaskIsRunning = true
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.pingTaskIsRunning = false
-                dispatch_semaphore_signal(self.semaphore)
+                self.semaphore.signal()
             }
             
-            NSThread.sleepForTimeInterval(threshold)
+            Thread.sleep(forTimeInterval: threshold)
             if pingTaskIsRunning {
                 handler()
             }
             
-            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+            semaphore.wait(timeout: DispatchTime.distantFuture)
         }
     }
 }
