@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let watchdog = Watchdog(threshold: 0.4, strictMode: true)
+    let watchdog = Watchdog(threshold: 0.001, strictMode: false)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         return true
