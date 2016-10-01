@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        sleep(1)
+        Thread.sleep(forTimeInterval: 2)
     }
 }
 

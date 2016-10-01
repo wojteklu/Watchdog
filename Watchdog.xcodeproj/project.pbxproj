@@ -107,6 +107,7 @@
 				TargetAttributes = {
 					5CB520261BAC7807006C7C92 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -253,6 +254,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wojtek.Watchdog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -270,6 +272,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wojtek.Watchdog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

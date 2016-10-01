@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E324D041BA1FAF700B8726D /* Watchdog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E324D031BA1FAF700B8726D /* Watchdog.swift */; settings = {ASSET_TAGS = (); }; };
+		2E324D041BA1FAF700B8726D /* Watchdog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E324D031BA1FAF700B8726D /* Watchdog.swift */; };
 		2EBC04EB1BA0C13100DEC597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC04EA1BA0C13100DEC597 /* AppDelegate.swift */; };
 		2EBC04ED1BA0C13100DEC597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC04EC1BA0C13100DEC597 /* ViewController.swift */; };
 		2EBC04F01BA0C13100DEC597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC04EE1BA0C13100DEC597 /* Main.storyboard */; };
@@ -98,6 +98,7 @@
 				TargetAttributes = {
 					2EBC04E61BA0C13100DEC597 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -256,6 +257,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wojtek.watchdog.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -267,6 +269,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wojtek.watchdog.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
