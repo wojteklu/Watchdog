@@ -1,5 +1,20 @@
 import Foundation
 
+/// Check app is debugging now
+///
+/// - returns: true/false
+func isAppDebugging() -> Bool {
+    let once: Bool = {
+        var info = kinfo_proc()
+        var mib: [Int32] = [CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()]
+        var size = MemoryLayout.stride(ofValue: info)
+        let junk = sysctl(&mib, UInt32(mib.count), &info, &size, nil, 0)
+        Swift.assert(junk == 0, "sysctl failed")
+        return (info.kp_proc.p_flag & P_TRACED) != 0
+    }()
+    return once
+}
+
 /// Class for logging excessive blocking on the main thread.
 @objc final public class Watchdog: NSObject {
     fileprivate let pingThread: PingThread
@@ -13,7 +28,7 @@ import Foundation
         let message = "👮 Main thread was blocked for " + String(format:"%.2f", threshold) + "s 👮"
 
         self.init(threshold: threshold) {
-            if strictMode {
+            if strictMode && !isAppDebugging() {
                 assertionFailure(message)
             } else {
                 NSLog("%@", message)
