@@ -37,7 +37,21 @@ import Foundation
 }
 
 private final class PingThread: Thread {
-    fileprivate var pingTaskIsRunning = false
+    fileprivate var pingTaskIsRunning: Bool {
+        get {
+            objc_sync_enter(pingTaskIsRunningLock)
+            let result = _pingTaskIsRunning;
+            objc_sync_exit(pingTaskIsRunningLock)
+            return result
+        }
+        set {
+            objc_sync_enter(pingTaskIsRunningLock)
+            _pingTaskIsRunning = newValue
+            objc_sync_exit(pingTaskIsRunningLock)
+        }
+    }
+    private var _pingTaskIsRunning = false
+    private let pingTaskIsRunningLock = NSObject()
     fileprivate var semaphore = DispatchSemaphore(value: 0)
     fileprivate let threshold: Double
     fileprivate let handler: () -> Void
