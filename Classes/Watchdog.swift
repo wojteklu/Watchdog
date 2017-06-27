@@ -14,7 +14,7 @@ import Foundation
 
         self.init(threshold: threshold) {
             if strictMode {
-                assertionFailure(message)
+                fatalError(message)
             } else {
                 NSLog("%@", message)
             }
