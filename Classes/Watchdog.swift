@@ -45,6 +45,8 @@ private final class PingThread: Thread {
     init(threshold: Double, handler: @escaping () -> Void) {
         self.threshold = threshold
         self.handler = handler
+        super.init()
+        self.name = "WatchDog"
     }
     
     override func main() {
