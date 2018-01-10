@@ -32,7 +32,7 @@
 		5CB5201D1BAC7807006C7C92 = {
 			isa = PBXGroup;
 			children = (
-				5CB520291BAC7807006C7C92 /* Watchdog */,
+				5CB520291BAC7807006C7C92 /* Classes */,
 				5CB520281BAC7807006C7C92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,13 +45,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5CB520291BAC7807006C7C92 /* Watchdog */ = {
+		5CB520291BAC7807006C7C92 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				5CB520431BAC7844006C7C92 /* Watchdog.swift */,
 				5CB5202A1BAC7807006C7C92 /* Supporting Files */,
 			);
-			path = Watchdog;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		5CB5202A1BAC7807006C7C92 /* Supporting Files */ = {
