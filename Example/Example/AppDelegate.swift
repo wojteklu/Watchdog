@@ -12,10 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var watchdog = Watchdog(threshold: 0.4, strictMode: true)
+    var watchdog: Watchdog!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        watchdog = Watchdog(threshold: 0.4, strictMode: true)
+        
         return true
     }
 }
