@@ -5,6 +5,10 @@
 
 Class for logging excessive blocking on the main thread. It watches the main thread and checks if it doesn’t get blocked for more than defined threshold. You can also inspect which part of your code is blocking the main thread.
 
+<p align="left">
+  <img src="Example/example.png" width="500px style='border:1px solid #000000'"/>
+</p>
+
 ```
 👮 Main thread was blocked for 1.25s 👮
 ```
