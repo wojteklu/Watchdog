@@ -3,15 +3,17 @@
 [![Language](https://img.shields.io/badge/swift-4.2-orange.svg)](http://swift.org)
 [![Build Status](https://img.shields.io/travis/wojteklu/Watchdog/master.svg?style=flat-square)](https://travis-ci.org/wojteklu/Watchdog) [![Platform support](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS-lightgrey.svg?style=flat-square)](https://github.com/wojteklu/Watchdog/blob/master/LICENSE)  [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Watchdog.svg?style=flat-square)](https://cocoapods.org/pods/Watchdog)  [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)  [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/wojteklu/Watchdog/blob/master/LICENSE)
 
-Class for logging excessive blocking on the main thread. It watches the main thread and checks if it doesn’t get blocked for more than defined threshold. You can also inspect which part of your code is blocking the main thread.
-
-<p align="left">
-  <img src="Example/example.png" width="500px style='border:1px solid #000000'"/>
-</p>
+Class for logging excessive blocking on the main thread. It watches the main thread and checks if it doesn’t get blocked for more than defined threshold.
 
 ```
 👮 Main thread was blocked for 1.25s 👮
 ```
+
+You can also inspect which part of your code is blocking the main thread.
+
+<p align="left">
+  <img src="Example/example.png" width="200px style='border:1px solid #000000'"/>
+</p>
 
 ## Usage
 
