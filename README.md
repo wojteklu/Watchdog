@@ -28,7 +28,7 @@ Don't forget to retain Watchdog somewhere or it will get released when it goes o
 ## Requirements
 
 * iOS 8.0+, tvOS 9.0+ or macOS 10.9+
-* Swift 4.2
+* Swift 5.0
 
 ## Installation
 

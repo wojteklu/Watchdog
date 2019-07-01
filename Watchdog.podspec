@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Watchdog"
-  s.version          = "5.1"
+  s.version          = "5.2"
   s.summary          = "Class for logging excessive blocking on the main thread."
 
   s.description      = <<-DESC
